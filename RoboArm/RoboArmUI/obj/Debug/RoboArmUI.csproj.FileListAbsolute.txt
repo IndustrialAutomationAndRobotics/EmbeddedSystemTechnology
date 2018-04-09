@@ -1,0 +1,10 @@
+C:\Users\invader\source\repos\RoboArm\RoboArmUI\bin\Debug\RoboArmUI.exe.config
+C:\Users\invader\source\repos\RoboArm\RoboArmUI\bin\Debug\RoboArmUI.exe
+C:\Users\invader\source\repos\RoboArm\RoboArmUI\bin\Debug\RoboArmUI.pdb
+C:\Users\invader\source\repos\RoboArm\RoboArmUI\obj\Debug\RoboArmUI.csprojResolveAssemblyReference.cache
+C:\Users\invader\source\repos\RoboArm\RoboArmUI\obj\Debug\RoboArmUI.Form1.resources
+C:\Users\invader\source\repos\RoboArm\RoboArmUI\obj\Debug\RoboArmUI.Properties.Resources.resources
+C:\Users\invader\source\repos\RoboArm\RoboArmUI\obj\Debug\RoboArmUI.csproj.GenerateResource.Cache
+C:\Users\invader\source\repos\RoboArm\RoboArmUI\obj\Debug\RoboArmUI.csproj.CoreCompileInputs.cache
+C:\Users\invader\source\repos\RoboArm\RoboArmUI\obj\Debug\RoboArmUI.exe
+C:\Users\invader\source\repos\RoboArm\RoboArmUI\obj\Debug\RoboArmUI.pdb
