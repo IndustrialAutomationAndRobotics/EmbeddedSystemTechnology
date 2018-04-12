@@ -2,12 +2,17 @@
 
 #define buttonOn 2
 #define buttonOff 3
-#define buttonUpdate 13
+#define buttonUpdate 4
 #define basePin A0
 #define shoulderPin A1
 #define elbowPin A2
 #define wristPin A3
 #define gripperPin A4
+#define baseOutputPin 11
+#define shoulderOutputPin 10
+#define elbowOutputPin 9
+#define wristOutputPin 6
+#define gripperOutputPin 5
 
 int buttonOnState = 1;
 int buttonOffState = 1;
@@ -23,6 +28,15 @@ int gripperValue = 0;
 
 bool robotOn = false;
 
+uint8_t outputPin[] = {
+
+  baseOutputPin,
+  shoulderOutputPin,
+  elbowOutputPin,
+  wristOutputPin,
+  gripperOutputPin,
+};
+
 uint8_t inputPin[] = {
   
   buttonOn,
@@ -37,6 +51,7 @@ void setup() {
   Serial.begin(9600);
 
   initInput();
+  initOutput();
 }
 
 void loop() {
@@ -51,6 +66,12 @@ void initInput(){
   }
 }
 
+void initOutput(){
+  for(uint8_t i = 0; i < arraySize(outputPin); i++){
+    pinMode(outputPin[i], OUTPUT);
+  }
+}
+
 void updateInput(){
 
   buttonOnState = digitalRead(buttonOn);
@@ -62,6 +83,12 @@ void updateInput(){
   elbowValue = analogRead(elbowPin);
   wristValue = analogRead(wristPin);
   gripperValue = analogRead(gripperPin);
+
+  analogWrite(baseOutputPin, map(baseValue, 0, 1023, 0, 255));
+  analogWrite(shoulderOutputPin, map(shoulderValue, 0, 1023, 0, 255));
+  analogWrite(elbowOutputPin, map(elbowValue, 0, 1023, 0, 255));
+  analogWrite(wristOutputPin, map(wristValue, 0, 1023, 0, 255));
+  analogWrite(gripperOutputPin, map(gripperValue, 0, 1023, 0, 255));
 }
 
 void serialSend(){
@@ -113,25 +140,19 @@ void serialSend(){
 
 void sendData(){
 
-  baseValue = map(baseValue, 0, 1023, 0, 180);
-  shoulderValue = map(shoulderValue, 0, 1023, 0, 180);
-  elbowValue = map(elbowValue, 0, 1023, 0, 180);
-  wristValue = map(wristValue, 0, 1023, 0, 180);
-  gripperValue = map(gripperValue, 0, 1023, 0, 180);
-
   Serial.print("Base = ");
-  Serial.print(baseValue);
+  Serial.print(map(baseValue, 0, 1023, 0, 180));
   Serial.print("\t");
   Serial.print("Shoulder = ");
-  Serial.print(shoulderValue);
+  Serial.print(map(shoulderValue, 0, 1023, 0, 180));
   Serial.print("\t");
   Serial.print("Elbow = ");
-  Serial.print(elbowValue);
+  Serial.print(map(elbowValue, 0, 1023, 0, 180));
   Serial.print("\t");
   Serial.print("Wrist = ");
-  Serial.print(wristValue);
+  Serial.print(map(wristValue, 0, 1023, 0, 180));
   Serial.print("\t");
   Serial.print("Gripper = ");
-  Serial.println(gripperValue);
+  Serial.println(map(gripperValue, 0, 1023, 0, 180));
 }
 
