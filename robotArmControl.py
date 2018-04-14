@@ -1,4 +1,9 @@
 import serial
+import udpTest
+
+udpConnection = udpTest.udpTest("127.0.0.1", 8080)
+
+udpConnection.sendData('hello lagi')
 
 try:
     arduino = serial.Serial("COM40",timeout=1)
