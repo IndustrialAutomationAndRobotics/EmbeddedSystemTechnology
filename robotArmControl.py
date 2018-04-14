@@ -1,7 +1,7 @@
 import serial
-import udpTest
+import UDP
 
-udpConnection = udpTest.udpTest("127.0.0.1", 8080)
+udpConnection = UDP.UDP("127.0.0.1", 8080)
 
 udpConnection.sendData('hello lagi')
 
