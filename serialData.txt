@@ -1,0 +1,14 @@
+serial data for assingment
+
+a - turn on fan 1
+b - turn on fan 2
+c - turn on fan 3
+d - turn on fan 4
+e - turn on conveyer
+f - robot pick item
+g - turn off fan 1
+h - turn off fan 2
+i - turn off fan 3
+j - turn off fan 4
+k - turn off conveyer
+l - robot place item
